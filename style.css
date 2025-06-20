@@ -1,0 +1,46 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+  height: 100%;
+}
+
+#stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+}
+
+/* ✅ 2단 이미지의 회전 중심 수정 (1291.5, 1296 기준) */
+#layer2 {
+  transform-origin: calc(1291.5 / 2358 * 100%) calc(1296 / 3946 * 100%);
+}
+
+@keyframes spin360 {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.rotate {
+  animation: spin360 0.8s linear;
+}
+
+.hotspot {
+  position: absolute;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0); /* 디버깅 시 0.2로 변경 가능 */
+}
